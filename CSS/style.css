@@ -1,0 +1,352 @@
+:root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+  --max-width: 1200px;
+}
+
+.category{
+  --sport-color: #f99500;
+  --ent-color:#a66bbe;
+  --tech-color:#009cff;
+}
+
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+ body {
+   font-family: 'Lato', sans-serif;
+   line-height: 1.5;
+   background: var(--light-color);
+ }
+
+ a {
+   color: var(--dark-color);
+   text-decoration: none;
+ }
+
+ ul {
+   list-style: none;
+ }
+
+ img {
+   width: 100%;
+ }
+
+ h1 , h2 , h3 , h4 , h5 , h6 {
+  font-family: 'Staatliches', cursive;;
+  margin-bottom: 0.55rem;
+  line-height: 1.3;
+ }
+
+ /* Utilities */
+
+ .container {
+   max-width: var(--max-width);
+   margin: auto;
+   padding: 0 3vw ;
+   overflow: hidden;
+ }
+
+ .category {
+   display: inline-block;
+   color: #fff;
+   font-size: 0.55rem;
+   text-transform: uppercase;
+   padding: 0.4rem 0.6rem;
+   border-radius: 15px;
+   margin-bottom: 0.5rem;
+ }
+
+ .category-sport { background: var(--sport-color); }
+ .category-ent { background: var(--ent-color); }
+ .category-tech { background: var(--tech-color); }
+
+ .btn {
+   display: inline-block;
+   border: none;
+   background: var(--dark-color);
+   color: #fff;
+   padding: 0.5rem 1.5rem;
+ }
+
+ .btn:hover {
+   cursor: pointer;
+ }
+
+ .btn-light{ background: var(--light-color);}
+ .btn-primary{ background: var(--primary-color);}
+ .btn-secondary{ background: var(--secondary-color);}
+
+ .btn-block {
+   display: block;
+   width: 100%;
+   text-align: center;
+   align-self: center;
+ }
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.card {
+  background: #fff;
+  padding: 1vh 1vw;
+}
+
+.p-1 {padding:  2vh 1vw}
+.p-2 {padding:  3vh 1.5vw}
+.p-3 {padding:  4vh 2vw;}
+.py-1 {padding:  2vh 0}
+.py-2 {padding:  4vh 0}
+.py-3 {padding:  6vh 0}
+
+/* il est préferable de mettre ces classes de couleur spécifique à la fin car si par ex la classe .card est après, les bg dark sur les cards ne marcheront plus... */
+
+.l-heading {font-size:3rem}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.bg-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.list > * {
+  display: block;
+  border-bottom: dotted 1px #555;
+  padding: 10px 0px;
+}
+
+
+/* On est obligé de spécifier ça pour prendre le pas sur les paramettre spécifique qu'on a déjà mi */
+.bg-dark a,
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-primary a,
+.bg-primary h1,
+.bg-primary h1,
+.bg-primary h3,
+.bg-secondary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3 {
+  color : #fff;
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-gap: 1rem;
+  margin: 2vh 2vw ;
+}
+
+/* c'est intéressant, avec ce syteme , tout ce qui est ajouté par la suite sera ajouté au sidebar */
+.page-container > *:first-child {
+  grid-row: 1 /span 4;
+}
+
+ /* Nav */
+
+ #main-nav {
+   position: sticky;
+   top: 0;
+   z-index: 2;
+   background: #fff;
+ }
+
+ #main-nav .container {
+   display: grid;
+   grid-template-columns: 6fr 3fr 2fr;
+   padding: 2vw 2vh;
+   align-items: center;
+ }
+
+ #main-nav .logo {
+   width: 180px;
+ }
+
+ #main-nav ul {
+
+   /* ici avec justify self c'est l'UL entier qu'on a envoyé vers la droite et non les blocs qu'il contetient si on avait ffait flex + justify content:right */
+   justify-self: right;
+   display: flex;
+   /* par certain de comprendre pourquoi pas    justify-content: flex-end; */
+ }
+
+ #main-nav ul li a {
+   padding: 1vw 1vh;
+   font-weight: bold;
+ }
+
+ #main-nav ul li a.current {
+   background: var(--primary-color);
+   color: #fff;
+ }
+
+ #main-nav ul li a:hover {
+   background: var(--light-color);
+   color: var(--dark-color);
+ }
+
+ #main-nav .social {
+  justify-self: center;
+ }
+
+ #main-nav .social i {
+   color: #777;
+   margin-right: 1vw;
+ }
+
+ #main-nav .social i.fa-facebook:hover {
+   color: rgba(0, 0, 255, 0.639);
+ }
+ #main-nav .social i.fa-twitter:hover {
+   color: rgb(29, 161, 242);
+ }
+ #main-nav .social i.fa-instagram:hover {
+   color: purple;
+ }
+ #main-nav .social i.fa-youtube:hover {
+   color: red;
+ }
+
+ /* ShowCase */
+
+ #showcase {
+  color: #fff;
+  padding: 2vw 2vh;
+  position: relative;
+  background: #333;
+  /* z-index: -2; */
+  }
+
+#showcase::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../img/featured.jpg') no-repeat center center/cover;
+  opacity: 0.4;
+  /* z-index: -1; */
+}
+
+/* il y a un probleme avec les mellanges de Z-index / before / opacity */
+/* les z index sont commenté car une autre solution est indiquée plus tard (voir z index de showxase content) */
+/* de base le before passe devant le principale et tout ses enfants... IL faut le forcer avec z-index a passer après la déscendance pour créer l'effet de overlay avec texte apparent. Après je suis forcé de faire passer le principale (mais pas sa déscendance) a passer encor un peu plus après le before... */
+/* ou alors je ne fais rien de tout ca et je met un flex/grid pour la déscendance et ca brise juste la chaine (RF aller voir le fonducon website et retirer le "Flex" de content tu vas voir... */
+
+#showcase .showcase-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+#showcase .showcase-content {
+  z-index: 1;
+}
+/* ici je n'ai plus besoin du trick que j'ai indiqué plus haut car j'ai donné la propriété GRID a un parent de l'élément qui est enfant de l'overlay */
+
+#showcase .showcase-content p {
+  margin-bottom: 1rem;
+}
+
+/* home article */
+
+#home-article .articles-container {
+  display: grid;
+  grid-template-rows: repeat (4, 400px) ;
+  grid-gap: 1rem;
+  grid-template-columns:  repeat(3, 1fr);
+}
+
+#home-article article {
+  padding:3vh 3vw;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ca veut dire, n'importe quel élément (astérix) qui est le premier enfant (first-child) de article-container uniquement (plus grand que) */
+#home-article .articles-container > *:first-child {
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+/* on aurait pu mettre ça "#home-article .card:first-child" mais disons que ca ajoute un peu de flexibilité mais c'est surtout pour apprnedre le concepte*/
+
+#home-article .card:nth-child(7) {
+  grid-column: 2 / span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+#article .meta {
+  display: flex;
+  justify-content: space-between;
+  background: #f4f4f4;
+  align-items: center;
+}
+
+#article .meta .category {
+  margin-top: 7px;
+}
+
+/* footer */
+
+#main-footer .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
+#main-footer .footer-container img {
+  width: 15v;
+  max-width: 150px;
+  min-width: 125px;
+  margin-bottom: 15px;
+}
+
+#main-footer .footer-container input {
+  width: 100%;
+  padding: 12px 5px;
+}
+
+#main-footer .footer-container input[type="email"] {
+  padding: 10px 5px;
+  margin-top: 1rem;
+}
+
+#main-footer .btn {
+  margin-top: 1rem;
+}
+
+
+#main-footer .footer-container ul li a:hover {
+  color: var(--primary-color);
+}
+
+#main-footer .footer-container > *:last-child {
+  grid-column: 1 / span 4;
+  background: #444;
+  text-align: center;
+}
